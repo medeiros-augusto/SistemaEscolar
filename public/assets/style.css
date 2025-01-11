@@ -1,0 +1,76 @@
+/* Zerando margens e paddings predefinidos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilizando o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #3ca2a2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0
+}
+
+/* Alinhando a div */
+.main-container {
+    flex-direction: column;
+}
+
+/* Estilizando o título */
+.titulo {
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 20px 30px;
+}
+
+/* Estilizando a div do login */
+.login-container {
+    background-color: #215a6d;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #dfece6;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #dfece6;
+    color: rgb(107, 107, 107);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #92c7a3;
+}
+
+/* Caso o usuário digite as credenciais errado */
+.error {
+    color: #92c7a3;
+    font-size: 14px;
+    margin-top: 10px;
+}
