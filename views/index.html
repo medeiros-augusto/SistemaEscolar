@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Sistema Escolar</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="public/assets/style.css">
 </head>
 
 <body>
@@ -35,7 +35,7 @@
       // Login
       if (usuario === 'admin' && senha === '1234') {
         alert('Login bem sucedido!');
-        location.href = "pagina-inicial.html";
+        location.href = "views/pagina-inicial.html";
       } else {
         errorMessage.textContent = 'Usuário ou senha inválidos.';
         errorMessage.style.display = 'block';
