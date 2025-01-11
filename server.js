@@ -34,6 +34,32 @@ app.get('/', (req, res) => {
         res.render('index')
     
 })
+app.get('/cadastrar-aluno', (req, res) => {
+    res.render('cadastrar-aluno')
+
+})
+app.get('/modificar-nota', (req, res) => {
+    res.render('modificar-nota')
+
+})
+app.get('/logout', (req, res) => {
+    req.session.destroy(err => {
+        if (err) {
+            console.error('Erro ao fazer logout:', err);
+        }
+        res.redirect('/');
+    });
+});
+app.get('/getUsers', (req, res) => {
+    connection.query('SELECT id_usuario, nome_usuario, senha_usuario FROM usuario', (error, results) => {
+        if (error) {
+            res.status(500).json({ error: 'Erro ao buscar dados do banco de dados' });
+        } else {
+            res.status(200).json(results);
+        }
+    });
+});
+
 app.post('/', (req, res) => {
     global.nomelogin = req.body.nomelogin
     let senha = req.body.senhalogin
@@ -44,7 +70,7 @@ app.post('/', (req, res) => {
                 if (rows[0].senha_usuario === senha) {
                     req.session.nomelogin = global.nomelogin
                     req.session.idlogin = rows[0].id_usuario
-                    if (req.session.nomelogin == 'adm') {
+                    if (rows[0].professor == 1) {
                         res.render('pagina-inicial-adm', { login: global.nomelogin })
                     } else {
                         res.render('pagina-inicial', { login: global.nomelogin })
@@ -61,6 +87,33 @@ app.post('/', (req, res) => {
         }
     })
 })
+
+app.post('/criar_usuario', (req, res) => {
+    const login = req.body.login;
+    const senha = req.body.senha;
+    const confirmasenha = req.body.confirmasenha;
+
+    if (login.length > 0) {
+        if (senha === confirmasenha) {
+            const sql = "INSERT INTO usuario (nome_usuario, senha_usuario) VALUES (?, ?)";
+            connection.query(sql, [login, senha], function (err, result) {
+                if (!err) {
+                    console.log("Usuário cadastrado com sucesso!");
+                    res.render('pagina-inicial-adm');
+                } else {
+                    console.log("Erro ao inserir no banco de dados:", err);
+                    res.status(500).send("Erro ao cadastrar usuário");
+                }
+            });
+        } else {
+            console.log("Erro ao confirmar senha!");
+            res.render('criar_usuario');
+        }
+    } else {
+        console.log("Login não preenchido");
+        res.render('criar_usuario');
+    }
+});
 
 app.listen(port, () => {
     console.log(`Servidor Rodando na porta ${port}`)

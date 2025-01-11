@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Configuração do conjunto de caracteres -->
+    <meta charset="UTF-8">
+    <!-- Configuração para dimensionamento inicial -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título da página -->
+    <title>Home ADM</title>
+    <!-- Ícone da página -->
+    <link rel="icon" href="../public/images/logo.png">
+    <!-- Estilos gerais -->
+    <link rel="stylesheet" href="public/assets/all.css">
+    <!-- Estilos do Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- Barra de navegação -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <!-- Logo da medicina -->
+            <img src="../public/images/logo_medicina.png" width="35px" height="35px">
+        </div>
+    </nav>
+
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Cartões para ações do administrador -->
+        <div class="cards">
+            <div class="row">
+                <!-- Cartão para cadastrar bombeiro -->
+                <div class="col-md-6">
+                    <div class="card mt-4 text-center">
+                        <!-- Imagem -->
+                        <img src="../public/images/bombeiro.png" style="width: 50%; margin: 0 auto;" class="card-img-top" alt="ocorrência">
+                        <div class="card-body">
+                            <h5 class="card-title">Cadastrar Aluno</h5>
+                            <p class="card-text">Para criar um cadastro para um aluno, clique no botão abaixo.</p>
+                            <a href="cadastrar-aluno" class="btn btn-primary" style="width: 100%;">Cadastrar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cartão para modificar usuários -->
+                <div class="col-md-6">
+                  <div class="card mt-4 text-center">
+                      <!-- Imagem -->
+                      <img src="../public/images/modificar.png" style="width: 50%; margin: 0 auto;" class="card-img-top" alt="ocorrência">
+                      <div class="card-body">
+                          <h5 class="card-title">Modificar Nota</h5>
+                          <p class="card-text">Para modificar notas, clique no botão abaixo.</p>
+                          <a href="modificar-nota" class="btn btn-primary" style="width: 100%;">Modificar</a>
+                      </div>
+                  </div>
+              </div>
+
+            </div>
+        </div>
+        <!-- Seção de informações do usuário logado -->
+        <div class="mt-5" style="text-align: center;">
+            <!-- Ícone de usuário -->
+            <img src="public/images/user.png" style="width: 2rem;">
+            <!-- Nome do usuário -->
+            <p style="margin: 0"><%= nomelogin %></p>
+            <!-- Link para sair -->
+            <a href="/logout">Sair</a>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="bg text-light mt-5 py-3">
+        <div class="container-fluid text-center">
+            <!-- Informações de autoria -->
+            <p class="mb-0" style="margin: 0;">Augusto e JP</p>
+        </div>
+    </footer>
+
+    <!-- Scripts necessários do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
