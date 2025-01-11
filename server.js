@@ -45,9 +45,9 @@ app.post('/', (req, res) => {
                     req.session.nomelogin = global.nomelogin
                     req.session.idlogin = rows[0].id_usuario
                     if (req.session.nomelogin == 'adm') {
-                        res.render('painel_adm', { login: global.nomelogin })
+                        res.render('pagina-inicial-adm', { login: global.nomelogin })
                     } else {
-                        res.render('home', { login: global.nomelogin })
+                        res.render('pagina-inicial', { login: global.nomelogin })
                     }
                 } else {
                     res.render('login')
