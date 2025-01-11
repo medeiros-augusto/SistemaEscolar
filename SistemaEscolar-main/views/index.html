@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Sistema Escolar</title>
+  <link rel="stylesheet" href="public/assets/style.css">
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="titulo">
+      <h1>Sistema Escolar</title>
+    </div>
+    
+    <div class="login-container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" id="username" placeholder="Usuário" required />
+        <input type="password" id="password" placeholder="Senha" required />
+        <button type="submit">Login</button>
+        <p class="error" id="errorMessage" style="display: none;"></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const usuario = document.getElementById('username').value;
+      const senha = document.getElementById('password').value;
+      const errorMessage = document.getElementById('errorMessage');
+
+      // Login
+      if (usuario === 'admin' && senha === '1234') {
+        alert('Login bem sucedido!');
+        location.href = "views/pagina-inicial.html";
+      } else {
+        errorMessage.textContent = 'Usuário ou senha inválidos.';
+        errorMessage.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
